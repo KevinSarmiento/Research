@@ -1,0 +1,7 @@
+Day fraction since midnight on 12/21/2020	 State ID	 State name	 Rule that caused previous state to end
+0.12828235	14	50cm depth (UV-PC1.2)	New Rule
+0.13870237	2	Just Water	New Rule
+0.31000381	0	OFF	New Rule
+0.40454480	4	Start Run (UV-PC1.2)	Operator changed the state
+0.40456699	2	Just Water	Operator changed the state
+0.41892586	0	OFF	Operator changed the state
