@@ -1,0 +1,9 @@
+Day fraction since midnight on 10/14/2020	 State ID	 State name	 Rule that caused previous state to end
+0.12142573	6	Run: 40cm blanket depth	New Rule
+0.32976177	7	Run: 50cm blanket depth	New Rule
+0.53809956	8	Clean and power down	New Rule
+0.53847736	0	OFF	Operator changed the state
+0.53861084	2	Just Water	Operator changed the state
+0.53861754	0	OFF	New Rule
+0.53870199	2	Just Water	Operator changed the state
+0.62506271	0	OFF	Operator changed the state

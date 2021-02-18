@@ -1,0 +1,6 @@
+Day fraction since midnight on 10/13/2020	 State ID	 State name	 Rule that caused previous state to end
+0.44317817	0	OFF	Operator changed the state
+0.44319071	2	Just Water	Operator changed the state
+0.47095152	3	Begin Run: 10cm blanket depth	Operator changed the state
+0.70475301	4	Run: 20cm blanket depth	New Rule
+0.91308922	5	Run: 30cm blanket depth	New Rule
