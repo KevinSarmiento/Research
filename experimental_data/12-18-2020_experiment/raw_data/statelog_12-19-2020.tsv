@@ -1,0 +1,37 @@
+Day fraction since midnight on 12/19/2020	 State ID	 State name	 Rule that caused previous state to end
+0.20110514	8	20cm depth (UV-PC1.2)	New Rule
+0.21152514	9	30cm depth (UV-PC1.3)	New Rule
+0.46153215	10	30cm depth (UV-PC1.2)	New Rule
+0.47195210	11	40cm depth (UV-PC1.3)	New Rule
+0.59500876	4	Start Run (UV-PC1.2)	Operator changed the state
+0.59503987	2	Just Water	Operator changed the state
+0.59504434	0	OFF	New Rule
+0.59507101	2	Just Water	Operator changed the state
+0.59649126	0	OFF	Operator changed the state
+0.59993203	2	Just Water	Operator changed the state
+0.60000757	4	Start Run (UV-PC1.2)	Operator changed the state
+0.60006754	5	10cm depth (UV-PC1.3)	Operator changed the state
+0.60011417	6	10cm depth (UV-PC1.2)	Operator changed the state
+0.60015642	7	20cm depth (UV-PC1.3)	Operator changed the state
+0.60020084	8	20cm depth (UV-PC1.2)	Operator changed the state
+0.60024082	9	30cm depth (UV-PC1.3)	Operator changed the state
+0.60027655	10	30cm depth (UV-PC1.2)	Operator changed the state
+0.60032541	11	40cm depth (UV-PC1.3)	Operator changed the state
+0.60036985	12	40cm depth (UV-PC1.2)	Operator changed the state
+0.60041429	13	50cm depth (UV-PC1.3)	Operator changed the state
+0.60045871	14	50cm depth (UV-PC1.2)	Operator changed the state
+0.60049649	2	Just Water	Operator changed the state
+0.60077213	0	OFF	Operator changed the state
+0.67654077	2	Just Water	Operator changed the state
+0.67969918	0	OFF	Operator changed the state
+0.68047266	2	Just Water	Operator changed the state
+0.68949229	0	OFF	Operator changed the state
+0.69694936	2	Just Water	Operator changed the state
+0.70946311	0	OFF	Operator changed the state
+0.71205253	2	Just Water	Operator changed the state
+0.71238371	0	OFF	Operator changed the state
+0.71518433	2	Just Water	Operator changed the state
+0.71545779	0	OFF	Operator changed the state
+0.71578676	2	Just Water	Operator changed the state
+0.72480208	4	Start Run (UV-PC1.2)	Operator changed the state
+0.73704907	5	10cm depth (UV-PC1.3)	New Rule
