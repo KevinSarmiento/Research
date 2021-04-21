@@ -240,7 +240,7 @@ def data_cleaner_PC(data,columns,time_span):
         prev_average = np.mean(data_copy.iloc[row:row+5,column])
         if prev_average == 0:
           prev_average = 0.5
-        error = ((current_value - prev_average)/(prev_average))*100
+        error = ((current_value - prev_average)/(prev_average))
         if current_value != 0 and (error > 9 or error < -.9):
           #current_value > 10**2.5 or current_value < 10**-2
           data_copy.iloc[row,column] =  None
