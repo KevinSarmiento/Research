@@ -197,8 +197,20 @@ def data_averaging(data, columns, group_size):
   new_df.columns = new_df_column_names_1
   return new_df
 
-# Edited on 11/15
 def data_cleaner_UV(data,columns,time_span):
+  """
+  Removes read errors for UV254 , values greater than an order of magnitude of change from previous value. 
+  Also removes zero values if preceeded and superceeded by none zero values. 
+
+  :param data: data set to average 
+  :type path: Pandas DataFrame 
+
+  :param columns: columns of the DataFrame to average
+  :type columns: list
+
+  :param time_span: Desired span of time 
+  :type group_size: list
+  """
   start_index= find_index(time_span[0], data)
   stop_index = find_index(time_span[1], data)
   data_copy= data.copy(deep=True)
@@ -221,8 +233,22 @@ def data_cleaner_UV(data,columns,time_span):
   return data_copy
 
 def data_cleaner_PC(data,columns,time_span):
-  start_index= find_index(time_span[0], data)
-  stop_index = find_index(time_span[1], data)
+  """
+  Removes read errors, values greater than an order of magnitude of change from previous value. 
+  Also removes zero values if preceeded and superceeded by none zero values. 
+
+  :param data: data set to average 
+  :type path: Pandas DataFrame 
+
+  :param columns: columns of the DataFrame to average
+  :type columns: list
+
+  :param time_span: Desired span of time 
+  :type group_size: list
+
+  """
+  start_index= ks.find_index(time_span[0], data)
+  stop_index = ks.find_index(time_span[1], data)
   data_copy= data.copy(deep=True)
   column_headers = ['2-3 μm','3-5 μm','5-9 μm','9-17 μm', '17-33 μm', '33-65 μm','Total Count']
   count = 0
@@ -233,21 +259,22 @@ def data_cleaner_PC(data,columns,time_span):
       data_copy.rename(columns = {data.columns[column]: column_headers[count]},inplace = True)
       count+= 1
       end = min(stop_index,len(data_copy)+1)
-      for row in range(start_index,stop_index):
+      for row in range(start_index +5,stop_index):
         current_value = data.iloc[row,column]
         if current_value is None:
           print('value is none')
-        prev_average = np.mean(data_copy.iloc[row:row+5,column])
+        prev_average = np.mean(data_copy.iloc[row-5:row,column])
         if prev_average == 0:
           prev_average = 0.5
         error = ((current_value - prev_average)/(prev_average))
         if current_value != 0 and (error > 9 or error < -.9):
           #current_value > 10**2.5 or current_value < 10**-2
-          data_copy.iloc[row,column] =  None
+          data_copy.iloc[row,column] =  data_copy.iloc[row-1,column]
+        if current_value == 0 and (current_value != data_copy.iloc[row-1,column] and current_value != data_copy.iloc[row+1,column]):
+          data_copy.iloc[row,column] = None
         else:
           None 
   return data_copy
-# (current_value != 0 and current_value <= 0.00000999) or
 
 def initial_values(data,columns,time_after_start):
 
