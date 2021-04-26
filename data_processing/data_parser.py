@@ -247,8 +247,8 @@ def data_cleaner_PC(data,columns,time_span):
   :type group_size: list
 
   """
-  start_index= ks.find_index(time_span[0], data)
-  stop_index = ks.find_index(time_span[1], data)
+  start_index= find_index(time_span[0], data)
+  stop_index = find_index(time_span[1], data)
   data_copy= data.copy(deep=True)
   column_headers = ['2-3 μm','3-5 μm','5-9 μm','9-17 μm', '17-33 μm', '33-65 μm','Total Count']
   count = 0
