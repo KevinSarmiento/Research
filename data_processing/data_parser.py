@@ -271,7 +271,7 @@ def data_cleaner_PC(data,columns,time_span):
           #current_value > 10**2.5 or current_value < 10**-2
           data_copy.iloc[row,column] =  data_copy.iloc[row-1,column]
         if current_value == 0 and (current_value != data_copy.iloc[row-1,column] and current_value != data_copy.iloc[row+1,column]):
-          data_copy.iloc[row,column] = None
+          data_copy.iloc[row,column] = np.nan
         else:
           None 
   return data_copy
