@@ -187,7 +187,7 @@ def data_averaging(data, columns, group_size):
   new_df_column_names_1 = []
   df_list = []
   for column in columns:
-    avg_value = list(map(np.mean,[data.iloc[i:i+group_size,column] for i in range(0,len(data)-group_size+1,group_size)]))
+    avg_value = list(map(np.nanmean,[data.iloc[i:i+group_size,column] for i in range(0,len(data)-group_size+1,group_size)]))
     # new_df_columns.append(avg_value)
     new_df_column_names = data.columns[column]
     new_df_column_names_1.append(new_df_column_names)
@@ -259,11 +259,11 @@ def data_cleaner_PC(data,columns,time_span):
       data_copy.rename(columns = {data.columns[column]: column_headers[count]},inplace = True)
       count+= 1
       end = min(stop_index,len(data_copy)+1)
-      for row in range(start_index +5,stop_index):
+      for row in range(start_index +5 ,stop_index):
         current_value = data.iloc[row,column]
         if current_value is None:
           print('value is none')
-        prev_average = np.mean(data_copy.iloc[row-5:row,column])
+        prev_average = np.nanmean(data_copy.iloc[row-5:row,column])
         if prev_average == 0:
           prev_average = 0.5
         error = ((current_value - prev_average)/(prev_average))
