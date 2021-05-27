@@ -250,7 +250,7 @@ def data_cleaner_PC(data,columns,time_span):
   start_index= find_index(time_span[0], data)
   stop_index = find_index(time_span[1], data)
   data_copy= data.copy(deep=True)
-  column_headers = ['2-3 μm','3-5 μm','5-9 μm','9-17 μm', '17-33 μm', '33-65 μm','Total Count']
+  column_headers = ['2-3 um','3-5 um','5-9 um','9-17 um', '17-33 um', '33-65 um','Total Count']
   count = 0
   for column in range(len(data_copy.columns)):
     print(column)
@@ -259,18 +259,21 @@ def data_cleaner_PC(data,columns,time_span):
       data_copy.rename(columns = {data.columns[column]: column_headers[count]},inplace = True)
       count+= 1
       end = min(stop_index,len(data_copy)+1)
-      for row in range(start_index +5 ,stop_index):
+      for row in range(start_index +10 ,stop_index):
         current_value = data.iloc[row,column]
-        if current_value is None:
-          print('value is none')
-        prev_average = np.nanmean(data_copy.iloc[row-5:row,column])
-        if prev_average == 0:
-          prev_average = 0.5
-        error = ((current_value - prev_average)/(prev_average))
-        if current_value != 0 and (error > 9 or error < -.9):
-          #current_value > 10**2.5 or current_value < 10**-2
-          data_copy.iloc[row,column] =  data_copy.iloc[row-1,column]
-        if current_value == 0 and (current_value != data_copy.iloc[row-1,column] and current_value != data_copy.iloc[row+1,column]):
+
+        prev_avg = np.nanmean(data_copy.iloc[row-10:row-1,column])
+        if prev_avg == 0:
+          prev_avg = 0.5
+
+        future_error = ((current_value - prev_avg)/(prev_avg))
+        
+        # if value is a flat out error, remove from dataset and replace with none type that wont affect average
+        if ((current_value <= 0.1 or current_value > 50000) and current_value != 0) or (current_value == 0 and (current_value != data_copy.iloc[row-1,column] 
+                                                                                     and current_value != data_copy.iloc[row+1,column])):
+          data_copy.iloc[row,column] = np.nan
+
+        elif current_value != 0 and (future_error > 99 or future_error < -.99) :
           data_copy.iloc[row,column] = np.nan
         else:
           None 
