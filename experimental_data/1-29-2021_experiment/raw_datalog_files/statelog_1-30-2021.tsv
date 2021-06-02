@@ -1,0 +1,11 @@
+Day fraction since midnight on 1/30/2021	 State ID	 State name	 Rule that caused previous state to end
+0.02100504	8	20cm depth (UV-PC1.2)	New Rule
+0.02184528	9	30cm depth (UV-PC1.3)	Ascending Rule
+0.27196770	10	30cm depth (UV-PC1.2)	New Rule
+0.27280774	11	40cm depth (UV-PC1.3)	Ascending Rule
+0.52293369	12	40cm depth (UV-PC1.2)	acending rule
+0.52377375	13	50cm depth (UV-PC1.3)	Ascending Rule
+0.55005904	14	50cm depth (UV-PC1.2)	Operator changed the state
+0.55089931	11	40cm depth (UV-PC1.3)	New Rule
+0.80101974	12	40cm depth (UV-PC1.2)	acending rule
+0.80185997	9	30cm depth (UV-PC1.3)	Descending Rule
